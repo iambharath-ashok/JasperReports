@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BicycleDetails" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1ba66d28-0b27-49d5-a6fd-533bb880a888">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="speed" class="java.lang.Double">
+		<fieldDescription><![CDATA[speed]]></fieldDescription>
+	</field>
+	<field name="noOfWheels" class="java.lang.Integer">
+		<fieldDescription><![CDATA[noOfWheels]]></fieldDescription>
+	</field>
+	<field name="brandName" class="java.lang.String">
+		<fieldDescription><![CDATA[brandName]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="390" y="0" width="165" height="20" uuid="2bd354f4-17b1-4a2b-8a6d-c650fd086f35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{speed} + " KMPH "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="205" height="20" uuid="7dce06fe-39b1-41b5-9141-4eb86d31c135"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noOfWheels}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="5c1013b6-032c-468e-95c1-008b60a766b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{brandName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

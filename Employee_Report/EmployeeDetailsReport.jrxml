@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeDetailsReport" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b9d8a408-b680-4639-8048-69bc1e1840d3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="company_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\Employee_Report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dept_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="employee_status_id" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT *  FROM EMPLOYEE E
+WHERE E.COMPANY_ID=$P{company_id} ]]>
+	</queryString>
+	<field name="EMP_ID" class="java.lang.Long"/>
+	<field name="EMP_NAME" class="java.lang.String"/>
+	<field name="EMP_NO" class="java.lang.String"/>
+	<field name="HIRE_DATE" class="java.sql.Date"/>
+	<field name="IMAGE" class="java.sql.Blob"/>
+	<field name="JOB" class="java.lang.String"/>
+	<field name="SALARY" class="java.lang.Double"/>
+	<field name="DEPT_ID" class="java.lang.Integer"/>
+	<field name="MNG_ID" class="java.lang.Long"/>
+	<field name="LAST_NM" class="java.lang.String"/>
+	<field name="EMAIL_ID" class="java.lang.String"/>
+	<field name="COMPANY_ID" class="java.lang.Long"/>
+	<field name="EMPLOYEE_STATUS_ID" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="206" splitType="Stretch">
+			<textField>
+				<reportElement x="111" y="4" width="444" height="20" uuid="45a53288-7546-47af-b0da-08bbf2a69da7"/>
+				<textFieldExpression><![CDATA[$F{EMP_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="24" width="444" height="20" uuid="a1e53291-5b55-4bd7-a848-d5cd1f9ea186"/>
+				<textFieldExpression><![CDATA[$F{LAST_NM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="44" width="444" height="20" uuid="9af58936-f4a7-4bec-935e-29cc245b9ee8"/>
+				<textFieldExpression><![CDATA[$F{JOB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="64" width="444" height="20" uuid="077fdc65-0518-4825-b609-9feeb32ad350"/>
+				<textFieldExpression><![CDATA[$F{EMAIL_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="84" width="444" height="20" uuid="9610e8fa-d45e-4270-acaa-dc135aea6c63"/>
+				<textFieldExpression><![CDATA[$F{HIRE_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="4" width="111" height="20" uuid="6d52e9ee-84f0-442d-811c-688325ecfb00"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMP_NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="111" height="20" uuid="8c5444b6-1347-49cd-a1a7-2a889a38a3cf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAST_NM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="111" height="20" uuid="5da73039-5308-4724-ba33-2d57f59f3c87"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JOB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="64" width="111" height="20" uuid="563bdbe4-82e7-4e2b-892d-0dc17197be0d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="84" width="111" height="20" uuid="071fc3e7-6511-4c86-80f2-18245e4a1057"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HIRE_DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="124" width="111" height="20" uuid="84fa0e0d-5246-41f9-aece-f095787ef245"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPARTMENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="144" width="111" height="20" uuid="7d1b30dc-d605-4310-87e2-25533d69a996"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LOCATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="104" width="111" height="20" uuid="7e93327e-c320-45de-b45a-031d25cb8a37"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JOB]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="104" width="444" height="20" uuid="86210c5b-c0bf-4432-83a9-831b92d9437a"/>
+				<textFieldExpression><![CDATA[$F{JOB}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="111" y="124" width="444" height="40" uuid="e1b49fcb-6158-42a2-8756-d0921c5a1af1"/>
+				<subreportParameter name="dept_id">
+					<subreportParameterExpression><![CDATA[$F{DEPT_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DepartmentDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="164" width="111" height="20" uuid="35bbb126-e0dd-401a-be2b-d0ae07f68184"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATUS]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="111" y="164" width="444" height="20" uuid="77665d4b-904a-41e5-acd7-ebdd8de845c8"/>
+				<subreportParameter name="employee_status_id">
+					<subreportParameterExpression><![CDATA[$F{EMPLOYEE_STATUS_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeStatusDetails.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

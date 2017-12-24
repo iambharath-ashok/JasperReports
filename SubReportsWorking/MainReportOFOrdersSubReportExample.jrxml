@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SimpleColumnReportFromHSQLDB" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d707d418-61ef-42fe-b221-e09c67365fb9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SHIP_COUNTRY_NM" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM ORDERS WHERE SHIPCOUNTRY=$P{SHIP_COUNTRY_NM}]]>
+	</queryString>
+	<field name="ORDERID" class="java.lang.Integer"/>
+	<field name="CUSTOMERID" class="java.lang.String"/>
+	<field name="EMPLOYEEID" class="java.lang.Integer"/>
+	<field name="ORDERDATE" class="java.sql.Timestamp"/>
+	<field name="REQUIREDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPPEDDATE" class="java.sql.Timestamp"/>
+	<field name="SHIPVIA" class="java.lang.Integer"/>
+	<field name="FREIGHT" class="java.math.BigDecimal"/>
+	<field name="SHIPNAME" class="java.lang.String"/>
+	<field name="SHIPADDRESS" class="java.lang.String"/>
+	<field name="SHIPCITY" class="java.lang.String"/>
+	<field name="SHIPREGION" class="java.lang.String"/>
+	<field name="SHIPPOSTALCODE" class="java.lang.String"/>
+	<field name="SHIPCOUNTRY" class="java.lang.String"/>
+	<variable name="TOTAL_SUM" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{FREIGHT}]]></variableExpression>
+	</variable>
+	<group name="ORDERID">
+		<groupExpression><![CDATA[$F{ORDERID}]]></groupExpression>
+	</group>
+	<group name="SHIPNAME">
+		<groupExpression><![CDATA[$F{SHIPNAME}]]></groupExpression>
+	</group>
+	<group name="SHIPADDRESS">
+		<groupExpression><![CDATA[$F{SHIPADDRESS}]]></groupExpression>
+	</group>
+	<group name="SHIPCITY">
+		<groupExpression><![CDATA[$F{SHIPCITY}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="79" uuid="8bc66e21-bb99-4fc0-902d-86325c2d38a7"/>
+				<subreportParameter name="SHIP_COUNTRY_NM">
+					<subreportParameterExpression><![CDATA[$F{SHIPCOUNTRY}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubReportOrdersExample.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="69" height="28" uuid="a881b510-796c-465e-af97-c11cf07d2deb"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ORDERID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="0" width="100" height="28" uuid="6a86318e-53c5-464a-84c5-b18e25c133ce"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPADDRESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="269" y="0" width="66" height="28" uuid="bd7a86fd-e7a0-4ab3-a1fa-5f36b27f2ea9"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPCITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="0" width="72" height="28" uuid="2d9443e6-6dab-4904-ba05-f3dd31b7dd40"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPREGION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="0" width="86" height="28" uuid="af6cbdfd-d382-4757-9fcd-f4554f7b9d6e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPCOUNTRY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="0" width="100" height="28" uuid="976b4207-d1e7-4d64-86bc-5cc433aab63a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="0" width="62" height="28" uuid="b3d5e4cc-da24-4725-8bb6-c138ab8e825e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FREIGHT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="69" height="20" uuid="3abf4142-3733-4cc8-a439-cd787bd1c756"/>
+				<textFieldExpression><![CDATA[$F{ORDERID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="0" width="100" height="20" uuid="fd0b48a2-7a53-41b1-af65-02f05a51f498"/>
+				<textFieldExpression><![CDATA[$F{SHIPNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="0" width="100" height="20" uuid="dc2d5ea5-0e90-4a9f-be61-062e98bcad71"/>
+				<textFieldExpression><![CDATA[$F{SHIPADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="269" y="0" width="66" height="20" uuid="781650bf-705b-450e-92aa-67ff162804b3"/>
+				<textFieldExpression><![CDATA[$F{SHIPCITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="72" height="20" uuid="be57d62b-06b1-4160-a264-dbd86f894b87"/>
+				<textFieldExpression><![CDATA[$F{SHIPREGION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="86" height="20" uuid="d81ac62b-3660-4233-981d-5b2c6949d99e"/>
+				<textFieldExpression><![CDATA[$F{SHIPCOUNTRY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="335" y="0" width="62" height="20" uuid="88d0c61e-4be2-4b32-a2f4-214dc5db0ab6"/>
+				<textFieldExpression><![CDATA[$F{FREIGHT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="78" splitType="Stretch">
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="335" y="10" width="220" height="21" uuid="3b25db21-3d78-40b0-a2b5-64a2903fc10c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{TOTAL_SUM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="21" uuid="65098375-f8d0-4a81-9a03-d85ec00463c7"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOATAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="198" y="10" width="100" height="20" uuid="054773c2-704e-403d-accf-9ce4fc019790"/>
+				<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

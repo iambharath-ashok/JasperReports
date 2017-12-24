@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubDBExDemo_Employee" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="bae2dd7a-c4a9-4a11-b5e3-a09434a4a099">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="emp_id" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT * FROM EMPLOYEE WHERE EMP_ID=$P{emp_id}]]>
+	</queryString>
+	<field name="EMP_ID" class="java.lang.Long"/>
+	<field name="EMP_NAME" class="java.lang.String"/>
+	<field name="EMP_NO" class="java.lang.String"/>
+	<field name="HIRE_DATE" class="java.sql.Date"/>
+	<field name="IMAGE" class="java.sql.Blob"/>
+	<field name="JOB" class="java.lang.String"/>
+	<field name="SALARY" class="java.lang.Double"/>
+	<field name="DEPT_ID" class="java.lang.Integer"/>
+	<field name="MNG_ID" class="java.lang.Long"/>
+	<field name="LAST_NM" class="java.lang.String"/>
+	<field name="EMAIL_ID" class="java.lang.String"/>
+	<field name="COMPANY_ID" class="java.lang.Long"/>
+	<field name="EMPLOYEE_STATUS_ID" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="22">
+			<staticText>
+				<reportElement x="286" y="2" width="100" height="20" uuid="20050636-17de-4d29-8524-209fb46a6c0a"/>
+				<text><![CDATA[EMP_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="42" height="20" uuid="545cb769-86b4-47a3-82e6-c5bca940bfb3"/>
+				<text><![CDATA[EMP_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="0" width="42" height="20" uuid="686bdee0-ed16-468a-bd3e-81a0671a4b45"/>
+				<text><![CDATA[EMP_NAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="0" width="42" height="20" uuid="c1f1f4fc-2716-4a04-a713-a0ab47623e92"/>
+				<text><![CDATA[EMP_NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="0" width="42" height="20" uuid="d34c3cee-122c-4260-bcb4-ae1fdf181653"/>
+				<text><![CDATA[HIRE_DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="0" width="42" height="20" uuid="6f2b3472-a1cb-44fe-9513-29874f5813c5"/>
+				<text><![CDATA[IMAGE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="42" height="20" uuid="478d89a1-5b2a-452f-8ec5-4ba5eff7fd45"/>
+				<text><![CDATA[JOB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="0" width="42" height="20" uuid="901fc4ea-de8d-4a72-b187-7a484c9213fd"/>
+				<text><![CDATA[SALARY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="0" width="42" height="20" uuid="998b002c-4bab-4027-b02c-326d6c12b543"/>
+				<text><![CDATA[DEPT_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="0" width="42" height="20" uuid="f210c679-db3b-4b97-bbc0-8faf135f8505"/>
+				<text><![CDATA[MNG_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="0" width="42" height="20" uuid="db958f70-faf2-4709-a01d-3134fe759e94"/>
+				<text><![CDATA[LAST_NM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="42" height="20" uuid="96bcf8ac-6909-4281-a2ec-e48b5d4671f7"/>
+				<text><![CDATA[EMAIL_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="0" width="42" height="20" uuid="de9c1f0f-bec1-4293-acca-463b7e1b1746"/>
+				<text><![CDATA[COMPANY_ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="0" width="42" height="20" uuid="5d3dc1a8-b8a6-4639-b081-fe23663a92b9"/>
+				<text><![CDATA[EMPLOYEE_STATUS_ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="42" height="20" uuid="bcab53e5-d8c0-4f9f-9a67-5e7cfb75ac7b"/>
+				<textFieldExpression><![CDATA[$F{EMP_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="42" y="0" width="42" height="20" uuid="6fdd8eac-846b-44bf-aa19-b41abfe366c3"/>
+				<textFieldExpression><![CDATA[$F{EMP_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="0" width="42" height="20" uuid="57a8d9f0-71cf-4004-948e-184ed6ea26c5"/>
+				<textFieldExpression><![CDATA[$F{EMP_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="0" width="42" height="20" uuid="3a0584cf-1f6a-4765-bbb4-27ae80b79249"/>
+				<textFieldExpression><![CDATA[$F{HIRE_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="0" width="42" height="20" uuid="8a83dbff-09f9-4ad6-a188-005425267987"/>
+				<textFieldExpression><![CDATA[""+$F{IMAGE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="42" height="20" uuid="d7743ad8-0a76-4111-8980-b1f74e850af6"/>
+				<textFieldExpression><![CDATA[$F{JOB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="0" width="42" height="20" uuid="63f9a7fd-52f2-4b64-8699-f67210c275ad"/>
+				<textFieldExpression><![CDATA[$F{SALARY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="42" height="20" uuid="320efccc-283a-45fd-b404-252b58aa3050"/>
+				<textFieldExpression><![CDATA[$F{DEPT_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="0" width="42" height="20" uuid="f3996868-e121-437c-851c-bc84d9c38840"/>
+				<textFieldExpression><![CDATA[$F{MNG_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="0" width="42" height="20" uuid="eda2aef3-517d-40d9-bd8e-6041b116c443"/>
+				<textFieldExpression><![CDATA[$F{LAST_NM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="42" height="20" uuid="5ef535f9-6d2a-4813-bcf3-44552207469e"/>
+				<textFieldExpression><![CDATA[$F{EMAIL_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="0" width="42" height="20" uuid="10d7cafa-582d-469e-9fbe-fcc7da404042"/>
+				<textFieldExpression><![CDATA[$F{COMPANY_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="504" y="0" width="42" height="20" uuid="ff2b5398-f61d-4b3f-9bf6-86c6685565e6"/>
+				<textFieldExpression><![CDATA[$F{EMPLOYEE_STATUS_ID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CityDetails" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b8c61b77-e51b-41b9-9043-9c318d579f86">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\04_04_2017_workspace\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="weather" class="com.guru.bharath.jasper.weather.Weather">
+		<fieldDescription><![CDATA[weather]]></fieldDescription>
+	</field>
+	<field name="cityName" class="java.lang.String">
+		<fieldDescription><![CDATA[cityName]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" uuid="425472d1-df5d-4a30-b840-ba5e24f43803"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cityName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="20" width="90" height="20" uuid="0074d37f-7d81-4472-a6da-39c129f1c878"/>
+				<text><![CDATA[Weather Type :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="20" width="150" height="20" uuid="b89207bb-f1c3-4415-8e00-0933ada787d2"/>
+				<textFieldExpression><![CDATA[""+$F{weather}.getType()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="20" width="116" height="20" uuid="3a602d43-bb99-484d-926a-9579b46d23a3"/>
+				<text><![CDATA[Temperature :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="386" y="20" width="169" height="20" uuid="337c1d37-b74e-4be8-98d6-ba3b4cec6928"/>
+				<textFieldExpression><![CDATA[""+$F{weather}.getTemperature()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="155">
+			<pie3DChart>
+				<chart>
+					<reportElement x="30" y="0" width="175" height="155" uuid="2aa0608d-30d7-49e0-9978-2794032bda30"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{cityName}]]></keyExpression>
+					<valueExpression><![CDATA[$F{weather}.getTemperature()]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<bar3DChart>
+				<chart>
+					<reportElement x="205" y="0" width="181" height="155" uuid="536e4ed0-8b8f-460d-a2e3-6a5d8b9c352a"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{weather}.getType()]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{cityName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{weather}.getTemperature()]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+			<areaChart>
+				<chart>
+					<reportElement x="386" y="0" width="169" height="155" uuid="588e5067-6386-4185-a707-8d3116bd40c5"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{weather}.getType()]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{cityName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{weather}.getTemperature()]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<areaPlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</areaPlot>
+			</areaChart>
+		</band>
+	</summary>
+</jasperReport>

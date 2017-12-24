@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReportDelete" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="0f35ef18-1c94-4e72-95fe-5655c85c8eb2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="shipCountry" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CityName" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM ORDERS]]>
+	</queryString>
+	<detail>
+		<band height="323" splitType="Stretch">
+			<subreport>
+				<reportElement x="1" y="45" width="554" height="100" uuid="d6218642-269e-4a55-806e-be38546bcabe"/>
+				<subreportParameter name="shipCountry">
+					<subreportParameterExpression><![CDATA[$P{shipCountry}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\SubReportDelete_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="0" y="196" width="554" height="100" uuid="a200fa51-a4c7-42b8-8e22-2cf79188d034"/>
+				<subreportParameter name="CityName">
+					<subreportParameterExpression><![CDATA[$P{CityName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "SubReportDelete_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="1" y="7" width="554" height="20" uuid="8d996835-3230-4cfb-80e4-ab216e83bf8c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ship Details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="159" width="553" height="20" uuid="5674a655-515d-475c-b06c-83719078a79f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address Details]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

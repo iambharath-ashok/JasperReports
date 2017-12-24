@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SubReportOrdersExample" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9768de98-6a52-4df4-a9f1-b152801999a8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SHIP_COUNTRY_NM" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DISTINCT(SHIPCOUNTRY) AS SHIPCOUNTRY FROM ORDERS WHERE SHIPCOUNTRY=$P{SHIP_COUNTRY_NM}]]>
+	</queryString>
+	<field name="SHIPCOUNTRY" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="-18" y="0" width="506" height="36" uuid="4954ff02-1a82-479e-8490-6f0a449b6c56"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SHIPCOUNTRY} + " Order Details"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProductsAndShipmentDetails_subreport4" language="groovy" pageWidth="300" pageHeight="500" columnWidth="300" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c3aa8d60-38ff-419f-9393-c3bd9b3a112a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cityName" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT Address.FIRSTNAME,Address.CITY,Address.STREET,Product.ID AS ID, Product.Name AS Name,
+		Positions.Quantity AS Quantity, Positions.Price AS Price
+		FROM Positions, Product, Document, Address
+		WHERE Positions.DocumentID = Document.ID AND
+		Document.AddressID = Address.ID AND
+		Positions.ProductID = Product.ID AND
+		Address.City = $P{cityName}
+		ORDER BY Product.ID]]>
+	</queryString>
+	<field name="FIRSTNAME" class="java.lang.String"/>
+	<field name="CITY" class="java.lang.String"/>
+	<field name="STREET" class="java.lang.String"/>
+	<field name="ID" class="java.lang.Integer"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="QUANTITY" class="java.lang.Integer"/>
+	<field name="PRICE" class="java.math.BigDecimal"/>
+	<pageHeader>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="300" height="20" uuid="e4dc9c13-a90b-438d-9eb8-3ca0701f1954"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Quantity Of Products Order by Street in " + $P{cityName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<summary>
+		<band height="127" splitType="Stretch">
+			<stackedBar3DChart>
+				<chart>
+					<reportElement x="0" y="0" width="300" height="127" uuid="6aa9af05-75ed-485f-ad16-6b6513e9e8da"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{CITY}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{STREET}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{QUANTITY}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</stackedBar3DChart>
+		</band>
+	</summary>
+</jasperReport>

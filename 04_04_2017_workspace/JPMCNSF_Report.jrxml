@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JPMCNSF_Report" language="groovy" pageWidth="900" pageHeight="870" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="302fc322-fc85-4f0f-b274-2dc3d75e69d3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[".\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="dataList" class="java.util.List">
+		<fieldDescription><![CDATA[dataList]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="860" height="37" uuid="5cf37490-d9ed-4294-8221-148bc41fc2f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["JPMC NSF Report " +" - " + new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="41" width="860" height="1" uuid="55bd7d09-2f82-4e45-8f6a-7caa31300690"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<subreport>
+				<reportElement x="46" y="0" width="754" height="100" uuid="4dfcd5ad-a2bc-4a49-8179-5d1d7c655c06"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{dataList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "JPMCNSF_Report_Table.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="126">
+			<subreport>
+				<reportElement x="0" y="26" width="860" height="100" uuid="0ddcd682-f47d-4c88-9664-67dc61a7fbd0"/>
+				<subreportParameter name="JPMC_DATA_LIST_SUBREPORT">
+					<subreportParameterExpression><![CDATA[$F{dataList}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{dataList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "JPMCNSF_Report_Summary.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="0" y="15" width="860" height="1" uuid="305ad14e-26a0-4d51-881c-697bf4d120f8"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

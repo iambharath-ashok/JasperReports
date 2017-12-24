@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7880ebb-2a5a-49e7-9e49-c65a029b43a8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PaymentAmount" class="java.lang.Double"/>
+	<parameter name="PaymentVolume" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="paymentProcessorResponseDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[paymentProcessorResponseDesc]]></fieldDescription>
+	</field>
+	<field name="paymentProcDt" class="java.util.Date">
+		<fieldDescription><![CDATA[paymentProcDt]]></fieldDescription>
+	</field>
+	<field name="remarks" class="java.lang.String">
+		<fieldDescription><![CDATA[remarks]]></fieldDescription>
+	</field>
+	<field name="bankAccountNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[bankAccountNumber]]></fieldDescription>
+	</field>
+	<field name="paymentAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[paymentAmount]]></fieldDescription>
+	</field>
+	<field name="bankRoutingCd" class="java.lang.String">
+		<fieldDescription><![CDATA[bankRoutingCd]]></fieldDescription>
+	</field>
+	<field name="lastName" class="java.lang.String">
+		<fieldDescription><![CDATA[lastName]]></fieldDescription>
+	</field>
+	<field name="billingApplicationAccntId" class="java.lang.String">
+		<fieldDescription><![CDATA[billingApplicationAccntId]]></fieldDescription>
+	</field>
+	<field name="businessName" class="java.lang.String">
+		<fieldDescription><![CDATA[businessName]]></fieldDescription>
+	</field>
+	<field name="firstName" class="java.lang.String">
+		<fieldDescription><![CDATA[firstName]]></fieldDescription>
+	</field>
+	<field name="paymentProcessorResponseCd" class="java.lang.String">
+		<fieldDescription><![CDATA[paymentProcessorResponseCd]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="860" height="20" uuid="b6030cb6-dd61-4c44-b31a-4488550da868"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["JPMC NSF Report " + new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="750" y="0" width="70" height="20" uuid="dbf3752d-2358-4280-ada6-5d66ad9796f7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[PaymentProcessorResponseDesc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="568" y="0" width="77" height="20" uuid="f7fae613-7b87-40b8-a7e5-bc09f3ad36a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[paymentProcDt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="820" y="0" width="40" height="20" uuid="1df50e3a-e558-46de-bc56-b71553b3c80b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="103" height="20" uuid="c29b1bbe-2964-4fee-9505-724438f60b06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[BankAccountNumber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="0" width="80" height="20" uuid="b65cabf9-eb94-48b4-9a6c-5d623b1b00f8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[PaymentAmount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="0" width="75" height="20" uuid="bb662fab-3135-496b-ab9f-7ac0f5ddd9f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[BankRoutingCd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="50" height="20" uuid="affd98a7-e30f-4b64-b21d-0a7ec481e4d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[LastName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="134" height="20" uuid="8e5bf88b-45b0-4aed-be6c-1bb1488e007f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[BillingApplicationAccntId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="70" height="20" uuid="3b8e6110-ef31-4b69-b95e-7a0965bccf7d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[BusinessName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="0" width="56" height="20" uuid="4590fd95-b878-4a48-ba09-8b698aa4d458"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[FirstName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="0" width="105" height="20" uuid="d4af928f-e0c0-4048-a058-732d3fe9d048"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[PaymentProcessorResponseCd]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="820" y="0" width="40" height="20" uuid="d3ea7e23-7fd2-49bd-b55b-110c12a44b52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="750" y="0" width="70" height="20" uuid="c0108e64-6a4b-44c5-832d-d6f3d619029b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentProcessorResponseDesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="134" height="20" uuid="8aec33e4-9947-4224-80e8-9ce0aa1475a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billingApplicationAccntId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="568" y="0" width="77" height="20" uuid="589970ce-85d6-43e0-9ee8-adab01e912f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentProcDt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="70" height="20" uuid="38717b48-49bf-4300-9463-5ed4f4ee8a10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{businessName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="50" height="20" uuid="1944e5c0-c11f-4b6a-ae45-642c5fdc5696"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="0" width="80" height="20" uuid="50cde87c-331b-4900-b7fc-4bb4d09bd7fa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="0" width="75" height="20" uuid="f8fab125-493f-4dbf-b48d-2c977e058c16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankRoutingCd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="645" y="0" width="105" height="20" uuid="b153f723-2005-41c1-b3a3-1b6f292d74de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentProcessorResponseCd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="0" width="56" height="20" uuid="b46d1123-c196-40c0-b66a-d97df935018d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="0" width="103" height="20" uuid="2829a2ed-5452-4c89-a421-869d697b6d35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bankAccountNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="208" splitType="Stretch">
+			<pie3DChart>
+				<chart>
+					<reportElement x="0" y="0" width="413" height="208" uuid="2322b39f-6e19-4801-a210-a05679b47d31"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{billingApplicationAccntId}]]></keyExpression>
+					<valueExpression><![CDATA[$P{PaymentAmount}]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<pie3DChart>
+				<chart>
+					<reportElement x="449" y="0" width="411" height="208" uuid="6f902f77-c9c4-43cf-b790-9ffd57fc8513"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{billingApplicationAccntId}]]></keyExpression>
+					<valueExpression><![CDATA[$P{PaymentVolume}]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

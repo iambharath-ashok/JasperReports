@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JPMCNSF_Report_tabletester" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d7be4874-d921-4f0b-925b-f73f79d9768a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="JPMC_Data_set" uuid="7003451b-b172-4fe9-a896-ef6a67c87551">
+		<field name="paymentProcessorResponseDesc" class="java.lang.String">
+			<fieldDescription><![CDATA[paymentProcessorResponseDesc]]></fieldDescription>
+		</field>
+		<field name="remarks" class="java.lang.String">
+			<fieldDescription><![CDATA[remarks]]></fieldDescription>
+		</field>
+		<field name="businessName" class="java.lang.String">
+			<fieldDescription><![CDATA[businessName]]></fieldDescription>
+		</field>
+		<field name="paymentAmount" class="java.lang.Double">
+			<fieldDescription><![CDATA[paymentAmount]]></fieldDescription>
+		</field>
+		<field name="billingApplicationAccntId" class="java.lang.String">
+			<fieldDescription><![CDATA[billingApplicationAccntId]]></fieldDescription>
+		</field>
+		<field name="firstName" class="java.lang.String">
+			<fieldDescription><![CDATA[firstName]]></fieldDescription>
+		</field>
+		<field name="paymentProcDt" class="java.util.Date">
+			<fieldDescription><![CDATA[paymentProcDt]]></fieldDescription>
+		</field>
+		<field name="bankRoutingCd" class="java.lang.String">
+			<fieldDescription><![CDATA[bankRoutingCd]]></fieldDescription>
+		</field>
+		<field name="paymentProcessorResponseCd" class="java.lang.String">
+			<fieldDescription><![CDATA[paymentProcessorResponseCd]]></fieldDescription>
+		</field>
+		<field name="lastName" class="java.lang.String">
+			<fieldDescription><![CDATA[lastName]]></fieldDescription>
+		</field>
+		<field name="bankAccountNumber" class="java.lang.String">
+			<fieldDescription><![CDATA[bankAccountNumber]]></fieldDescription>
+		</field>
+	</subDataset>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="343" y="17" width="360" height="80" uuid="1de49407-3755-4432-acdb-19b17ed13205"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="JPMC_Data_set" uuid="cf7827d3-05eb-4603-bb15-70d47df7ef8d">
+						<dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="f33d1563-1cac-4ec0-9892-4e38c78fe2ca">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d8c4d000-52cc-499d-810c-6aa6143e57e6"/>
+								<text><![CDATA[paymentProcessorResponseDesc]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="aead0938-8d14-452a-96bf-7c9fe8fb1871"/>
+								<textFieldExpression><![CDATA[$F{paymentProcessorResponseDesc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7b983ad7-f491-4c75-855c-533d012bd0aa">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="1d0cfbc8-ac08-4580-8d50-313ea2c6faec"/>
+								<text><![CDATA[remarks]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="7bbb6926-caaf-4d4d-8eba-1b18732f80e6"/>
+								<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="756a8342-bb14-4b4d-8c8b-85f388afe258">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bf804775-edc7-4415-b65a-ae2d03c576a2"/>
+								<text><![CDATA[businessName]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="bc9abf44-84eb-442e-b198-dceced51359c"/>
+								<textFieldExpression><![CDATA[$F{businessName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3988228d-14ad-4644-ab51-61b28169e6dd">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="adae3b36-ded2-4e49-81d6-457de8010df6"/>
+								<text><![CDATA[paymentAmount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="07a0ae10-605c-4597-b423-e60a7b32b429"/>
+								<textFieldExpression><![CDATA[$F{paymentAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e2842eab-684b-4f24-824b-63eff33d1b97">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="96d48ad4-6f58-48a7-9d1c-7ea6d384667b"/>
+								<text><![CDATA[billingApplicationAccntId]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="5de54baf-1326-47a4-90d2-a5137a0a7f59"/>
+								<textFieldExpression><![CDATA[$F{billingApplicationAccntId}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="f74b7e4d-a5a7-4be1-94b7-659f9382702d">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e57bd1e0-0550-49b7-8f69-f0ba4844317a"/>
+								<text><![CDATA[firstName]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="2f310f1e-5c0c-4013-abfa-ae79916c26b7"/>
+								<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="ade4088b-1ad9-4581-91e0-226c79639710">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="dd58968d-c326-4b14-bd84-f2056254a5fe"/>
+								<text><![CDATA[paymentProcDt]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="fa0531fc-d78f-4d17-8a2f-a6a07de8e137"/>
+								<textFieldExpression><![CDATA[$F{paymentProcDt}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="76350e21-e9be-4120-a03a-b31a280b2cdf">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="afab2195-1b36-4c3d-90d4-ebf21d99421e"/>
+								<text><![CDATA[bankRoutingCd]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="968130e9-9e6c-42f5-9a62-36ee31a2e43f"/>
+								<textFieldExpression><![CDATA[$F{bankRoutingCd}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="61d35c8c-795b-4972-8ced-6deec000945a">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="576f94fd-74e2-4a8f-99dd-ba77936f575d"/>
+								<text><![CDATA[paymentProcessorResponseCd]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="c45c32c9-a519-452b-83d4-4a524732b0fd"/>
+								<textFieldExpression><![CDATA[$F{paymentProcessorResponseCd}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="4db00314-3182-44c5-b076-b6508712ab11">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="9a3162d7-36b9-4b90-a536-a688e33d6a86"/>
+								<text><![CDATA[lastName]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="07082757-8db2-4624-a25f-bb91f25651e6"/>
+								<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2c237217-3d4f-4a26-adf7-99be48a72993">
+						<jr:tableHeader style="table_TH" height="30"/>
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="583752f5-e727-42dd-8396-7c2147951371"/>
+								<text><![CDATA[bankAccountNumber]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="3c6a8f61-ce47-4fb3-b5a1-2694fa8d7339"/>
+								<textFieldExpression><![CDATA[$F{bankAccountNumber}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

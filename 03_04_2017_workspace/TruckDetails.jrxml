@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TruckDetails" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d3c1ef99-6072-4020-957c-d67f109ba8b3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="brandName" class="java.lang.String">
+		<fieldDescription><![CDATA[brandName]]></fieldDescription>
+	</field>
+	<field name="speed" class="java.lang.Double">
+		<fieldDescription><![CDATA[speed]]></fieldDescription>
+	</field>
+	<field name="noOfWheels" class="java.lang.Integer">
+		<fieldDescription><![CDATA[noOfWheels]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="185" y="0" width="205" height="20" uuid="d0175f97-2f23-4b68-961b-83bafe498a72"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{noOfWheels}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="165" height="20" uuid="67780893-eb2b-45a6-aaf5-27ea84d78abb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{speed} + " KMPH "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="273c2ab3-1186-4175-8c2c-55ef4d6f18a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{brandName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

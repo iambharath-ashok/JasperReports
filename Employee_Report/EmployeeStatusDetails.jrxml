@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeStatusDetails" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="31186e4a-4c2b-47e1-92d4-ebcbf7654af2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="employee_status_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM  EMPLOYEE_STATUS WHERE  EMPLOYEE_STATUS_ID=$P{employee_status_id}]]>
+	</queryString>
+	<field name="EMPLOYEE_STATUS_ID" class="java.lang.Integer"/>
+	<field name="EMPLOYEE_STATUS_DESC" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="277" height="20" uuid="10bc76e2-b725-4785-a584-b6332f24d360"/>
+				<textFieldExpression><![CDATA[$F{EMPLOYEE_STATUS_DESC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

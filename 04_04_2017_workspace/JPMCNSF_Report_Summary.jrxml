@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JPMCNSF_Report_PieChart" language="groovy" pageWidth="870" pageHeight="802" columnWidth="870" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="69a934cf-6492-401d-96bd-b2a5a4edb796">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.chart.pie.ignore.duplicated.key" value="true"/>
+	<scriptlet name="JPMCNSFVolumeScriplet" class="com.ctl.epwf.batch.report.scriptlet.payment.JPMCNSFReportScriptlet"/>
+	<scriptlet name="JPMCAmountScriptlet" class="com.ctl.epwf.batch.report.scriptlet.payment.JPMCNSFReportScriptlet"/>
+	<parameter name="JPMC_DATA_LIST_SUBREPORT" class="java.util.List" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="billingApplicationAccntId" class="java.lang.String">
+		<fieldDescription><![CDATA[billingApplicationAccntId]]></fieldDescription>
+	</field>
+	<field name="bankRoutingCd" class="java.lang.String">
+		<fieldDescription><![CDATA[bankRoutingCd]]></fieldDescription>
+	</field>
+	<field name="paymentProcessorResponseCd" class="java.lang.String">
+		<fieldDescription><![CDATA[paymentProcessorResponseCd]]></fieldDescription>
+	</field>
+	<field name="paymentAmt" class="java.lang.Double">
+		<fieldDescription><![CDATA[paymentAmt]]></fieldDescription>
+	</field>
+	<field name="bankAcctNum" class="java.lang.String">
+		<fieldDescription><![CDATA[bankAcctNum]]></fieldDescription>
+	</field>
+	<field name="paymentProcessorRespDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[paymentProcessorRespDesc]]></fieldDescription>
+	</field>
+	<field name="paymentProcDt" class="java.util.Date">
+		<fieldDescription><![CDATA[paymentProcDt]]></fieldDescription>
+	</field>
+	<field name="remarks" class="java.lang.String">
+		<fieldDescription><![CDATA[remarks]]></fieldDescription>
+	</field>
+	<field name="fullName" class="java.lang.String">
+		<fieldDescription><![CDATA[fullName]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="433" height="20" uuid="d205c29b-02b8-42a9-ad9d-767adbf0e102"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Response Code By Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="0" width="437" height="20" uuid="2fe49dc7-d0d1-4184-b1d7-fdd775610454"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Response Code By Volume]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="251" splitType="Stretch">
+			<pieChart>
+				<chart>
+					<reportElement mode="Opaque" x="0" y="0" width="433" height="251" forecolor="#666666" uuid="5c9b46ce-5e5b-4e7b-8ed2-8781f5f0fbf3"/>
+					<chartTitle color="#000000"/>
+					<chartSubtitle/>
+					<chartLegend textColor="#000000"/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{paymentProcessorResponseCd}]]></keyExpression>
+					<valueExpression><![CDATA[$P{JPMCAmountScriptlet_SCRIPTLET}.getPaymentProcessorResponnseCdAmount($F{paymentProcessorResponseCd},$P{JPMC_DATA_LIST_SUBREPORT})]]></valueExpression>
+					<labelExpression><![CDATA[$P{JPMCAmountScriptlet_SCRIPTLET}.getPaymentProcessorResponnseCdAmount($F{paymentProcessorResponseCd},$P{JPMC_DATA_LIST_SUBREPORT}).toString()]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<pieChart>
+				<chart>
+					<reportElement mode="Opaque" x="433" y="0" width="437" height="251" forecolor="#000000" uuid="6797a222-9dcd-49f6-9341-b90b73a60b15"/>
+					<chartTitle/>
+					<chartSubtitle color="#000000"/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{paymentProcessorResponseCd}]]></keyExpression>
+					<valueExpression><![CDATA[$P{JPMCNSFVolumeScriplet_SCRIPTLET}.getPaymentProcessorResponnseCdVolume($F{paymentProcessorResponseCd},$P{JPMC_DATA_LIST_SUBREPORT})]]></valueExpression>
+					<labelExpression><![CDATA[$P{JPMCNSFVolumeScriplet_SCRIPTLET}.getPaymentProcessorResponnseCdVolume($F{paymentProcessorResponseCd},$P{JPMC_DATA_LIST_SUBREPORT}).toString()]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

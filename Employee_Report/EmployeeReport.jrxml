@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EmployeeReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4e4db085-7e19-473f-84e8-759076787722">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\Employee_Report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="company_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dept_id" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[20]]></defaultValueExpression>
+	</parameter>
+	<parameter name="employee_status_id" class="java.lang.Integer" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT * FROM COMPANY C
+WHERE C.COMPANY_ID=$P{company_id}]]>
+	</queryString>
+	<field name="COMPANY_ID" class="java.lang.Integer"/>
+	<field name="COMPANY_NAME" class="java.lang.String"/>
+	<field name="COMPANY_KEY" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="78" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" backcolor="#000000" uuid="74d22cb1-e65f-4e77-ba0f-d543f8c60f5e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="html">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPLOYEE REPORT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="120" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="20" width="555" height="100" uuid="fbfd41e8-1a39-406d-8680-6c9e12cf8854"/>
+				<subreportParameter name="company_id">
+					<subreportParameterExpression><![CDATA[$F{COMPANY_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="employee_status_id">
+					<subreportParameterExpression><![CDATA[$P{employee_status_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="dept_id">
+					<subreportParameterExpression><![CDATA[$P{dept_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EmployeeDetailsReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="122" height="20" forecolor="#990099" backcolor="#FFFFFF" uuid="9768dff0-3523-48a5-9eef-b3ef4bf42e55"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPANY_NAME]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="134" y="0" width="421" height="20" uuid="f3c13912-9415-4296-a715-1bbea6f742a1"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COMPANY_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

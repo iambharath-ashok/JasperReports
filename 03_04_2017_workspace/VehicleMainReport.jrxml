@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VehicleMainReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9fe80ad1-3275-424a-afaa-9c15c3783f6b">
+	<property name="ireport.zoom" value="1.1269722013523664"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Bharath_Workspaces\\JasperIReportWorkapce\\03_04_2017_workspace\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[type]]></fieldDescription>
+	</field>
+	<field name="truck" class="java.util.List">
+		<fieldDescription><![CDATA[truck]]></fieldDescription>
+	</field>
+	<field name="motorCycle" class="java.util.List">
+		<fieldDescription><![CDATA[motorCycle]]></fieldDescription>
+	</field>
+	<field name="car" class="java.util.List">
+		<fieldDescription><![CDATA[car]]></fieldDescription>
+	</field>
+	<field name="bicycle" class="java.util.List">
+		<fieldDescription><![CDATA[bicycle]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="165" y="0" width="228" height="42" uuid="ea0c76d8-c8e8-4817-b6f5-d6b2f81d84b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vehicle Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="177" height="20" uuid="e7fefb20-c910-4f5f-822b-b6f238022270"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Brand ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="216" height="20" uuid="6c9be148-30ec-4170-b1fe-bea59144787d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Wheels]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="0" width="162" height="20" uuid="73cd328d-1b8a-4ff7-8bf9-9bb0c05d4818"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Speed]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="258">
+			<staticText>
+				<reportElement x="0" y="19" width="555" height="20" uuid="f852d8cc-61e9-46d0-94e9-ddda07914cfa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Bicycles]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="39" width="555" height="40" uuid="714ecaae-b98e-42fd-824b-7797d11ab95f"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{bicycle})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BicycleDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="79" width="555" height="20" uuid="01c6e3a8-17ad-4a86-a1ea-1f7a96c9f905"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Motor Cycles]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="99" width="555" height="39" uuid="98503a4a-bacb-404d-a64a-df4cc82833ae"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{motorCycle})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "MotorCycleDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="138" width="555" height="20" uuid="b324f316-1821-48be-ba83-f189594ede02"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Cars]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="158" width="555" height="40" uuid="97056eff-65fe-417b-bec8-b358c896e16e"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{car})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CarDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="198" width="555" height="20" uuid="a7c475a5-3ef2-44c8-bb09-9fa402feac37"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Trucks]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="218" width="555" height="39" uuid="eb6efe71-ce14-4043-921e-b9eb14408a6b"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{truck})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "TruckDetails.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="0" y="257" width="555" height="1" uuid="15b668a7-e056-4de7-9247-f1bad582a05e"/>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Double" lineColor="#990099"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#FFFF33" uuid="a591177f-adf9-4683-ba44-e32e03692a4e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type} + " Data"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement x="192" y="0" width="80" height="20" uuid="37657dc4-5cc6-4b69-aaea-5a3f6c712e38"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="272" y="0" width="40" height="20" uuid="457f49f5-be90-4991-897b-c052e2bf8675"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
